@@ -1,0 +1,1750 @@
+{
+  "CSK": [
+    {
+      "player_name": "Ruturaj Gaikwad",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.14,
+      "ar_type": "N/A",
+      "cricinfo_key": "1060380"
+    },
+    {
+      "player_name": "Ayush Mhatre",
+      "role": "batter",
+      "player_type": "young_established",
+      "final_score": 5.45,
+      "ar_type": "N/A",
+      "cricinfo_key": "1452455"
+    },
+    {
+      "player_name": "M S Dhoni",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 7.69,
+      "ar_type": "N/A",
+      "cricinfo_key": "28081"
+    },
+    {
+      "player_name": "Sanju Samson",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 7.42,
+      "ar_type": "N/A",
+      "cricinfo_key": "425943"
+    },
+    {
+      "player_name": "Dewald Brevis",
+      "role": "batter",
+      "player_type": "young_established",
+      "final_score": 7.46,
+      "ar_type": "N/A",
+      "cricinfo_key": "1070665"
+    },
+    {
+      "player_name": "Urvil Patel",
+      "role": "keeper",
+      "player_type": "low_exp",
+      "final_score": 2.5,
+      "ar_type": "N/A",
+      "cricinfo_key": "1131570"
+    },
+    {
+      "player_name": "Shivam Dube",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.66,
+      "ar_type": "balanced",
+      "cricinfo_key": "714451"
+    },
+    {
+      "player_name": "Jamie Overton",
+      "role": "allrounder",
+      "player_type": "low_exp",
+      "final_score": 4.77,
+      "ar_type": "bowling",
+      "cricinfo_key": "510530"
+    },
+    {
+      "player_name": "Noor Ahmad",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 8.39,
+      "ar_type": "N/A",
+      "cricinfo_key": "1182529"
+    },
+    {
+      "player_name": "Khaleel Ahmed",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 4.1,
+      "ar_type": "N/A",
+      "cricinfo_key": "942645"
+    },
+    {
+      "player_name": "Anshul Kamboj",
+      "role": "allrounder",
+      "player_type": "young_established",
+      "final_score": 3.99,
+      "ar_type": "bowling",
+      "cricinfo_key": "1175428"
+    },
+    {
+      "player_name": "Shreyas Gopal",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.76,
+      "ar_type": "N/A",
+      "cricinfo_key": "344580"
+    },
+    {
+      "player_name": "Mukesh Choudhary",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "1125688"
+    },
+    {
+      "player_name": "Akeal Hosein",
+      "role": "bowler",
+      "player_type": "low_exp",
+      "final_score": 4.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "530812"
+    },
+    {
+      "player_name": "Prashant Veer",
+      "role": "allrounder",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "bowling",
+      "cricinfo_key": "1403197"
+    },
+    {
+      "player_name": "Kartik Sharma",
+      "role": "batter",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "1459392"
+    },
+    {
+      "player_name": "Matthew Short",
+      "role": "allrounder",
+      "player_type": "young_established",
+      "final_score": 7.42,
+      "ar_type": "balanced",
+      "cricinfo_key": "605575"
+    },
+    {
+      "player_name": "Sarfaraz Khan",
+      "role": "batter",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "642525"
+    },
+    {
+      "player_name": "Matt Henry",
+      "role": "bowler",
+      "player_type": "low_exp",
+      "final_score": 5.26,
+      "ar_type": "N/A",
+      "cricinfo_key": "506612"
+    },
+    {
+      "player_name": "Rahul Chahar",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 3.09,
+      "ar_type": "N/A",
+      "cricinfo_key": "1064812"
+    },
+    {
+      "player_name": "Zak Foulkes",
+      "role": "allrounder",
+      "player_type": "debutant",
+      "final_score": 3.52,
+      "ar_type": "bowling",
+      "cricinfo_key": "1202098"
+    }
+  ],
+  "MI": [
+    {
+      "player_name": "Hardik Pandya",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 7.14,
+      "ar_type": "balanced",
+      "cricinfo_key": "625371"
+    },
+    {
+      "player_name": "Rohit Sharma",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 6.82,
+      "ar_type": "N/A",
+      "cricinfo_key": "34102"
+    },
+    {
+      "player_name": "Suryakumar Yadav",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.59,
+      "ar_type": "N/A",
+      "cricinfo_key": "446507"
+    },
+    {
+      "player_name": "Tilak Varma",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.22,
+      "ar_type": "N/A",
+      "cricinfo_key": "1170265"
+    },
+    {
+      "player_name": "Ryan Rickelton",
+      "role": "keeper",
+      "player_type": "young_established",
+      "final_score": 7.57,
+      "ar_type": "N/A",
+      "cricinfo_key": "605661"
+    },
+    {
+      "player_name": "Robin Minz",
+      "role": "keeper",
+      "player_type": "low_exp",
+      "final_score": 2.45,
+      "ar_type": "N/A",
+      "cricinfo_key": "1350762"
+    },
+    {
+      "player_name": "Raj Bawa",
+      "role": "allrounder",
+      "player_type": "low_exp",
+      "final_score": 2.58,
+      "ar_type": "balanced",
+      "cricinfo_key": "1292502"
+    },
+    {
+      "player_name": "Mitchell Santner",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.54,
+      "ar_type": "bowling",
+      "cricinfo_key": "502714"
+    },
+    {
+      "player_name": "Corbin Bosch",
+      "role": "allrounder",
+      "player_type": "low_exp",
+      "final_score": 4.5,
+      "ar_type": "bowling",
+      "cricinfo_key": "594322"
+    },
+    {
+      "player_name": "Naman Dhir",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.2,
+      "ar_type": "batting",
+      "cricinfo_key": "1287032"
+    },
+    {
+      "player_name": "Jasprit Bumrah",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 7.11,
+      "ar_type": "N/A",
+      "cricinfo_key": "625383"
+    },
+    {
+      "player_name": "Trent Boult",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 8.36,
+      "ar_type": "N/A",
+      "cricinfo_key": "277912"
+    },
+    {
+      "player_name": "Allah Ghazanfar",
+      "role": "bowler",
+      "player_type": "debutant",
+      "final_score": 2.45,
+      "ar_type": "N/A",
+      "cricinfo_key": "1326798"
+    },
+    {
+      "player_name": "Ashwani Kumar",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 4.13,
+      "ar_type": "N/A",
+      "cricinfo_key": "1209126"
+    },
+    {
+      "player_name": "Deepak Chahar",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 4.6,
+      "ar_type": "N/A",
+      "cricinfo_key": "447261"
+    },
+    {
+      "player_name": "Will Jacks",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 7.35,
+      "ar_type": "balanced",
+      "cricinfo_key": "897549"
+    },
+    {
+      "player_name": "Sherfane Rutherford",
+      "role": "batter",
+      "player_type": "young_established",
+      "final_score": 6.96,
+      "ar_type": "N/A",
+      "cricinfo_key": "914541"
+    },
+    {
+      "player_name": "Mayank Markande",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.76,
+      "ar_type": "N/A",
+      "cricinfo_key": "1081442"
+    },
+    {
+      "player_name": "Shardul Thakur",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 4.56,
+      "ar_type": "balanced",
+      "cricinfo_key": "475281"
+    },
+    {
+      "player_name": "Quinton de Kock",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 6.4,
+      "ar_type": "N/A",
+      "cricinfo_key": "379143"
+    },
+    {
+      "player_name": "Atharva Ankolekar",
+      "role": "allrounder",
+      "player_type": "debutant",
+      "final_score": 2.45,
+      "ar_type": "batting",
+      "cricinfo_key": "1175467"
+    },
+    {
+      "player_name": "Mayank Rawat",
+      "role": "allrounder",
+      "player_type": "debutant",
+      "final_score": 2.45,
+      "ar_type": "bowling",
+      "cricinfo_key": "1079847"
+    }
+  ],
+  "KKR": [
+    {
+      "player_name": "Ajinkya Rahane",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 6.54,
+      "ar_type": "N/A",
+      "cricinfo_key": "277916"
+    },
+    {
+      "player_name": "Angkrish Raghuvanshi",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 6.53,
+      "ar_type": "N/A",
+      "cricinfo_key": "1292495"
+    },
+    {
+      "player_name": "Anukul Roy",
+      "role": "allrounder",
+      "player_type": "young_established",
+      "final_score": 2.27,
+      "ar_type": "bowling",
+      "cricinfo_key": "1079839"
+    },
+    {
+      "player_name": "Manish Pandey",
+      "role": "batter",
+      "player_type": "young_established",
+      "final_score": 3.02,
+      "ar_type": "N/A",
+      "cricinfo_key": "290630"
+    },
+    {
+      "player_name": "Ramandeep Singh",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.69,
+      "ar_type": "N/A",
+      "cricinfo_key": "1079470"
+    },
+    {
+      "player_name": "Rinku Singh",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 6.73,
+      "ar_type": "N/A",
+      "cricinfo_key": "723105"
+    },
+    {
+      "player_name": "Rovman Powell",
+      "role": "batter",
+      "player_type": "young_established",
+      "final_score": 6.38,
+      "ar_type": "N/A",
+      "cricinfo_key": "820351"
+    },
+    {
+      "player_name": "Sunil Narine",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 7.46,
+      "ar_type": "balanced",
+      "cricinfo_key": "230558"
+    },
+    {
+      "player_name": "Umran Malik",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.49,
+      "ar_type": "N/A",
+      "cricinfo_key": "1246528"
+    },
+    {
+      "player_name": "Vaibhav Arora",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 4.33,
+      "ar_type": "N/A",
+      "cricinfo_key": "1209292"
+    },
+    {
+      "player_name": "Varun Chakravarthy",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 6.57,
+      "ar_type": "N/A",
+      "cricinfo_key": "1108375"
+    },
+    {
+      "player_name": "Cameron Green",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.09,
+      "ar_type": "N/A",
+      "cricinfo_key": "1076713"
+    },
+    {
+      "player_name": "Finn Allen",
+      "role": "batter",
+      "player_type": "debutant",
+      "final_score": 4.81,
+      "ar_type": "N/A",
+      "cricinfo_key": "959759"
+    },
+    {
+      "player_name": "Matheesha Pathirana",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 6.46,
+      "ar_type": "N/A",
+      "cricinfo_key": "1194795"
+    },
+    {
+      "player_name": "Kartik Tyagi",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "1122918"
+    },
+    {
+      "player_name": "Prashant Solanki",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.99,
+      "ar_type": "N/A",
+      "cricinfo_key": "1252337"
+    },
+    {
+      "player_name": "Rahul Tripathi",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 4.73,
+      "ar_type": "N/A",
+      "cricinfo_key": "446763"
+    },
+    {
+      "player_name": "Tim Seifert",
+      "role": "keeper",
+      "player_type": "debutant",
+      "final_score": 3.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "625964"
+    },
+    {
+      "player_name": "Sarthak Ranjan",
+      "role": "keeper",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "956405"
+    },
+    {
+      "player_name": "Rachin Ravindra",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 8.29,
+      "ar_type": "bowling",
+      "cricinfo_key": "959767"
+    },
+    {
+      "player_name": "B Muzarabani",
+      "role": "allrounder",
+      "player_type": "debutant",
+      "final_score": 2.63,
+      "ar_type": "bowling",
+      "cricinfo_key": "827051"
+    }
+  ],
+  "RCB": [
+    {
+      "player_name": "Rajat Patidar",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.5,
+      "ar_type": "N/A",
+      "cricinfo_key": "823703"
+    },
+    {
+      "player_name": "Virat Kohli",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.4,
+      "ar_type": "N/A",
+      "cricinfo_key": "253802"
+    },
+    {
+      "player_name": "Devdutt Padikkal",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 5.67,
+      "ar_type": "N/A",
+      "cricinfo_key": "1119026"
+    },
+    {
+      "player_name": "Phil Salt",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 7.79,
+      "ar_type": "N/A",
+      "cricinfo_key": "669365"
+    },
+    {
+      "player_name": "Jitesh Sharma",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 7.16,
+      "ar_type": "N/A",
+      "cricinfo_key": "721867"
+    },
+    {
+      "player_name": "Krunal Pandya",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.53,
+      "ar_type": "bowling",
+      "cricinfo_key": "471342"
+    },
+    {
+      "player_name": "Swapnil Singh",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 4.1,
+      "ar_type": "N/A",
+      "cricinfo_key": "232292"
+    },
+    {
+      "player_name": "Tim David",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.46,
+      "ar_type": "N/A",
+      "cricinfo_key": "892749"
+    },
+    {
+      "player_name": "Romario Shepherd",
+      "role": "allrounder",
+      "player_type": "young_established",
+      "final_score": 7.83,
+      "ar_type": "balanced",
+      "cricinfo_key": "677077"
+    },
+    {
+      "player_name": "Jacob Bethell",
+      "role": "allrounder",
+      "player_type": "low_exp",
+      "final_score": 4.38,
+      "ar_type": "balanced",
+      "cricinfo_key": "1194959"
+    },
+    {
+      "player_name": "Bhuvneshwar Kumar",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 6.71,
+      "ar_type": "N/A",
+      "cricinfo_key": "326016"
+    },
+    {
+      "player_name": "Nuwan Thushara",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 5.25,
+      "ar_type": "N/A",
+      "cricinfo_key": "955235"
+    },
+    {
+      "player_name": "Rasikh Salam",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 3.51,
+      "ar_type": "N/A",
+      "cricinfo_key": "1161489"
+    },
+    {
+      "player_name": "Abhinandan Singh",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.99,
+      "ar_type": "N/A",
+      "cricinfo_key": "1449085"
+    },
+    {
+      "player_name": "Suyash Sharma",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.1,
+      "ar_type": "N/A",
+      "cricinfo_key": "1350792"
+    },
+    {
+      "player_name": "Venkatesh Iyer",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.42,
+      "ar_type": "balanced",
+      "cricinfo_key": "851403"
+    },
+    {
+      "player_name": "Jacob Duffy",
+      "role": "bowler",
+      "player_type": "debutant",
+      "final_score": 3.51,
+      "ar_type": "N/A",
+      "cricinfo_key": "547766"
+    },
+    {
+      "player_name": "Josh Hazlewood",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 4.77,
+      "ar_type": "N/A",
+      "cricinfo_key": "288284"
+    },
+    {
+      "player_name": "Jordan Cox",
+      "role": "keeper",
+      "player_type": "debutant",
+      "final_score": 3.9,
+      "ar_type": "N/A",
+      "cricinfo_key": "1112537"
+    }
+  ],
+  "PBKS": [
+    {
+      "player_name": "Prabhsimran Singh",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 7.19,
+      "ar_type": "N/A",
+      "cricinfo_key": "1161024"
+    },
+    {
+      "player_name": "Priyansh Arya",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 8.04,
+      "ar_type": "N/A",
+      "cricinfo_key": "1175456"
+    },
+    {
+      "player_name": "Shreyas Iyer",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.78,
+      "ar_type": "N/A",
+      "cricinfo_key": "642519"
+    },
+    {
+      "player_name": "Shashank Singh",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 8.11,
+      "ar_type": "N/A",
+      "cricinfo_key": "377534"
+    },
+    {
+      "player_name": "Nehal Wadhera",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 6.46,
+      "ar_type": "N/A",
+      "cricinfo_key": "1151273"
+    },
+    {
+      "player_name": "Marcus Stoinis",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.99,
+      "ar_type": "balanced",
+      "cricinfo_key": "325012"
+    },
+    {
+      "player_name": "Azmatullah Omarzai",
+      "role": "allrounder",
+      "player_type": "young_established",
+      "final_score": 6.99,
+      "ar_type": "bowling",
+      "cricinfo_key": "819429"
+    },
+    {
+      "player_name": "Marco Jansen",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 8.35,
+      "ar_type": "N/A",
+      "cricinfo_key": "696401"
+    },
+    {
+      "player_name": "Harpreet Brar",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 5.59,
+      "ar_type": "N/A",
+      "cricinfo_key": "1168641"
+    },
+    {
+      "player_name": "Yuzvendra Chahal",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.84,
+      "ar_type": "N/A",
+      "cricinfo_key": "430246"
+    },
+    {
+      "player_name": "Arshdeep Singh",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 8.35,
+      "ar_type": "N/A",
+      "cricinfo_key": "1125976"
+    },
+    {
+      "player_name": "Musheer Khan",
+      "role": "allrounder",
+      "player_type": "low_exp",
+      "final_score": 2.45,
+      "ar_type": "bowling",
+      "cricinfo_key": "1316430"
+    },
+    {
+      "player_name": "Suryansh Shedge",
+      "role": "allrounder",
+      "player_type": "low_exp",
+      "final_score": 2.45,
+      "ar_type": "balanced",
+      "cricinfo_key": "1339698"
+    },
+    {
+      "player_name": "Mitchell Owen",
+      "role": "allrounder",
+      "player_type": "low_exp",
+      "final_score": 4.83,
+      "ar_type": "balanced",
+      "cricinfo_key": "1213979"
+    },
+    {
+      "player_name": "Xavier Bartlett",
+      "role": "bowler",
+      "player_type": "low_exp",
+      "final_score": 5.38,
+      "ar_type": "N/A",
+      "cricinfo_key": "1050545"
+    },
+    {
+      "player_name": "Lockie Ferguson",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 5.95,
+      "ar_type": "N/A",
+      "cricinfo_key": "493773"
+    },
+    {
+      "player_name": "Vyshak Vijaykumar",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 3.23,
+      "ar_type": "N/A",
+      "cricinfo_key": "777815"
+    },
+    {
+      "player_name": "Yash Thakur",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.89,
+      "ar_type": "N/A",
+      "cricinfo_key": "1070196"
+    },
+    {
+      "player_name": "Vishnu Vinod",
+      "role": "keeper",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "732293"
+    },
+    {
+      "player_name": "Cooper Connolly",
+      "role": "batter",
+      "player_type": "debutant",
+      "final_score": 3.32,
+      "ar_type": "N/A",
+      "cricinfo_key": "1210488"
+    },
+    {
+      "player_name": "Ben Dwarshuis",
+      "role": "bowler",
+      "player_type": "debutant",
+      "final_score": 4.48,
+      "ar_type": "N/A",
+      "cricinfo_key": "679567"
+    },
+    {
+      "player_name": "Pravin Dubey",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 4.71,
+      "ar_type": "N/A",
+      "cricinfo_key": "777515"
+    }
+  ],
+  "GT": [
+    {
+      "player_name": "Shubman Gill",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.27,
+      "ar_type": "N/A",
+      "cricinfo_key": "1070173"
+    },
+    {
+      "player_name": "Sai Sudharsan",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.59,
+      "ar_type": "N/A",
+      "cricinfo_key": "1151288"
+    },
+    {
+      "player_name": "Kumar Kushagra",
+      "role": "keeper",
+      "player_type": "low_exp",
+      "final_score": 2.45,
+      "ar_type": "N/A",
+      "cricinfo_key": "1207295"
+    },
+    {
+      "player_name": "Anuj Rawat",
+      "role": "keeper",
+      "player_type": "young_established",
+      "final_score": 4.44,
+      "ar_type": "N/A",
+      "cricinfo_key": "1123073"
+    },
+    {
+      "player_name": "Jos Buttler",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 7.27,
+      "ar_type": "N/A",
+      "cricinfo_key": "308967"
+    },
+    {
+      "player_name": "Nishant Sindhu",
+      "role": "allrounder",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "bowling",
+      "cricinfo_key": "1292506"
+    },
+    {
+      "player_name": "Washington Sundar",
+      "role": "allrounder",
+      "player_type": "young_established",
+      "final_score": 6.5,
+      "ar_type": "balanced",
+      "cricinfo_key": "719715"
+    },
+    {
+      "player_name": "Glenn Phillips",
+      "role": "allrounder",
+      "player_type": "young_established",
+      "final_score": 7.32,
+      "ar_type": "balanced",
+      "cricinfo_key": "823509"
+    },
+    {
+      "player_name": "Arshad Khan",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 5.05,
+      "ar_type": "N/A",
+      "cricinfo_key": "1244751"
+    },
+    {
+      "player_name": "Shahrukh Khan",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.62,
+      "ar_type": "N/A",
+      "cricinfo_key": "719719"
+    },
+    {
+      "player_name": "Rahul Tewatia",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 8.06,
+      "ar_type": "bowling",
+      "cricinfo_key": "423838"
+    },
+    {
+      "player_name": "Kagiso Rabada",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 7.7,
+      "ar_type": "N/A",
+      "cricinfo_key": "550215"
+    },
+    {
+      "player_name": "Mohammed Siraj",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 4.73,
+      "ar_type": "N/A",
+      "cricinfo_key": "940973"
+    },
+    {
+      "player_name": "Prasidh Krishna",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 4.73,
+      "ar_type": "N/A",
+      "cricinfo_key": "917159"
+    },
+    {
+      "player_name": "Ishant Sharma",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 3.87,
+      "ar_type": "N/A",
+      "cricinfo_key": "236779"
+    },
+    {
+      "player_name": "Gurnoor Singh Brar",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 4.09,
+      "ar_type": "N/A",
+      "cricinfo_key": "1287033"
+    },
+    {
+      "player_name": "Rashid Khan",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 7.1,
+      "ar_type": "balanced",
+      "cricinfo_key": "793463"
+    },
+    {
+      "player_name": "Manav Suthar",
+      "role": "allrounder",
+      "player_type": "low_exp",
+      "final_score": 2.45,
+      "ar_type": "bowling",
+      "cricinfo_key": "1175426"
+    },
+    {
+      "player_name": "Sai Kishore",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 4.43,
+      "ar_type": "N/A",
+      "cricinfo_key": "1048739"
+    },
+    {
+      "player_name": "Jayant Yadav",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.85,
+      "ar_type": "N/A",
+      "cricinfo_key": "447587"
+    },
+    {
+      "player_name": "Ashok Sharma",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.99,
+      "ar_type": "N/A",
+      "cricinfo_key": "1299879"
+    },
+    {
+      "player_name": "Jason Holder",
+      "role": "allrounder",
+      "player_type": "young_established",
+      "final_score": 6.37,
+      "ar_type": "balanced",
+      "cricinfo_key": "391485"
+    },
+    {
+      "player_name": "Tom Banton",
+      "role": "batter",
+      "player_type": "debutant",
+      "final_score": 3.62,
+      "ar_type": "N/A",
+      "cricinfo_key": "877051"
+    },
+    {
+      "player_name": "Luke Wood",
+      "role": "bowler",
+      "player_type": "low_exp",
+      "final_score": 4.88,
+      "ar_type": "N/A",
+      "cricinfo_key": "573170"
+    }
+  ],
+  "RR": [
+    {
+      "player_name": "Ravindra Jadeja",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.62,
+      "ar_type": "balanced",
+      "cricinfo_key": "234675"
+    },
+    {
+      "player_name": "Donovan Ferreira",
+      "role": "allrounder",
+      "player_type": "low_exp",
+      "final_score": 5.08,
+      "ar_type": "balanced",
+      "cricinfo_key": "698315"
+    },
+    {
+      "player_name": "Sandeep Sharma",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 2.96,
+      "ar_type": "N/A",
+      "cricinfo_key": "438362"
+    },
+    {
+      "player_name": "Shubham Dubey",
+      "role": "batter",
+      "player_type": "young_established",
+      "final_score": 6.34,
+      "ar_type": "N/A",
+      "cricinfo_key": "1252585"
+    },
+    {
+      "player_name": "Vaibhav Suryavanshi",
+      "role": "batter",
+      "player_type": "young_established",
+      "final_score": 5.9,
+      "ar_type": "N/A",
+      "cricinfo_key": "1408688"
+    },
+    {
+      "player_name": "Lhuan-Dre Pretorius",
+      "role": "batter",
+      "player_type": "debutant",
+      "final_score": 3.56,
+      "ar_type": "N/A",
+      "cricinfo_key": "1385640"
+    },
+    {
+      "player_name": "Shimron Hetmyer",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.29,
+      "ar_type": "N/A",
+      "cricinfo_key": "670025"
+    },
+    {
+      "player_name": "Yashasvi Jaiswal",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.57,
+      "ar_type": "N/A",
+      "cricinfo_key": "1151278"
+    },
+    {
+      "player_name": "Dhruv Jurel",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 6.82,
+      "ar_type": "N/A",
+      "cricinfo_key": "1175488"
+    },
+    {
+      "player_name": "Riyan Parag",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.16,
+      "ar_type": "N/A",
+      "cricinfo_key": "1079434"
+    },
+    {
+      "player_name": "Jofra Archer",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 7.61,
+      "ar_type": "N/A",
+      "cricinfo_key": "669855"
+    },
+    {
+      "player_name": "Tushar Deshpande",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 4.76,
+      "ar_type": "N/A",
+      "cricinfo_key": "822553"
+    },
+    {
+      "player_name": "Kwena Maphaka",
+      "role": "bowler",
+      "player_type": "low_exp",
+      "final_score": 4.15,
+      "ar_type": "N/A",
+      "cricinfo_key": "1294342"
+    },
+    {
+      "player_name": "Nandre Burger",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 7.92,
+      "ar_type": "N/A",
+      "cricinfo_key": "971349"
+    },
+    {
+      "player_name": "Ravi Bishnoi",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 6.53,
+      "ar_type": "N/A",
+      "cricinfo_key": "1175441"
+    },
+    {
+      "player_name": "Yash Raj Punja",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.99,
+      "ar_type": "N/A",
+      "cricinfo_key": "796331"
+    },
+    {
+      "player_name": "Vignesh Puthur",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 4.53,
+      "ar_type": "N/A",
+      "cricinfo_key": "1460388"
+    },
+    {
+      "player_name": "Brijesh Sharma",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.99,
+      "ar_type": "N/A",
+      "cricinfo_key": "1515046"
+    },
+    {
+      "player_name": "Adam Milne",
+      "role": "bowler",
+      "player_type": "debutant",
+      "final_score": 4.73,
+      "ar_type": "N/A",
+      "cricinfo_key": "450860"
+    },
+    {
+      "player_name": "Kuldeep Sen",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 4.04,
+      "ar_type": "N/A",
+      "cricinfo_key": "1163695"
+    }
+  ],
+  "SRH": [
+    {
+      "player_name": "Pat Cummins",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 7.68,
+      "ar_type": "N/A",
+      "cricinfo_key": "489889"
+    },
+    {
+      "player_name": "Travis Head",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 8.04,
+      "ar_type": "N/A",
+      "cricinfo_key": "530011"
+    },
+    {
+      "player_name": "Abhishek Sharma",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 8.51,
+      "ar_type": "N/A",
+      "cricinfo_key": "1070183"
+    },
+    {
+      "player_name": "Aniket Verma",
+      "role": "batter",
+      "player_type": "young_established",
+      "final_score": 6.4,
+      "ar_type": "N/A",
+      "cricinfo_key": "1409976"
+    },
+    {
+      "player_name": "Ishan Kishan",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 7.5,
+      "ar_type": "N/A",
+      "cricinfo_key": "720471"
+    },
+    {
+      "player_name": "Heinrich Klaasen",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 7.43,
+      "ar_type": "N/A",
+      "cricinfo_key": "436757"
+    },
+    {
+      "player_name": "Nitish Kumar Reddy",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.29,
+      "ar_type": "balanced",
+      "cricinfo_key": "1175496"
+    },
+    {
+      "player_name": "Harsh Dubey",
+      "role": "allrounder",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "bowling",
+      "cricinfo_key": "1216159"
+    },
+    {
+      "player_name": "Kamindu Mendis",
+      "role": "allrounder",
+      "player_type": "young_established",
+      "final_score": 6.55,
+      "ar_type": "bowling",
+      "cricinfo_key": "784373"
+    },
+    {
+      "player_name": "Harshal Patel",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 5.42,
+      "ar_type": "N/A",
+      "cricinfo_key": "390481"
+    },
+    {
+      "player_name": "Brydon Carse",
+      "role": "allrounder",
+      "player_type": "debutant",
+      "final_score": 2.45,
+      "ar_type": "bowling",
+      "cricinfo_key": "596417"
+    },
+    {
+      "player_name": "Jaydev Unadkat",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 4.55,
+      "ar_type": "N/A",
+      "cricinfo_key": "390484"
+    },
+    {
+      "player_name": "Eshan Malinga",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 3.76,
+      "ar_type": "N/A",
+      "cricinfo_key": "1306214"
+    },
+    {
+      "player_name": "Zeeshan Ansari",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "942371"
+    },
+    {
+      "player_name": "Shivang Kumar",
+      "role": "allrounder",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "bowling",
+      "cricinfo_key": "1512089"
+    },
+    {
+      "player_name": "Salil Arora",
+      "role": "batter",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "1199281"
+    },
+    {
+      "player_name": "Sakib Hussain",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.99,
+      "ar_type": "N/A",
+      "cricinfo_key": "1340422"
+    },
+    {
+      "player_name": "Amit Kumar",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.99,
+      "ar_type": "N/A",
+      "cricinfo_key": "601407"
+    },
+    {
+      "player_name": "Liam Livingstone",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.59,
+      "ar_type": "balanced",
+      "cricinfo_key": "403902"
+    },
+    {
+      "player_name": "Shivam Mavi",
+      "role": "bowler",
+      "player_type": "debutant",
+      "final_score": 2.45,
+      "ar_type": "N/A",
+      "cricinfo_key": "1079848"
+    },
+    {
+      "player_name": "DA  Patyne",
+      "role": "bowler",
+      "player_type": "debutant",
+      "final_score": 4.33,
+      "ar_type": "N/A",
+      "cricinfo_key": "362710"
+    }
+  ],
+  "LSG": [
+    {
+      "player_name": "Abdul Samad",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.17,
+      "ar_type": "N/A",
+      "cricinfo_key": "1175485"
+    },
+    {
+      "player_name": "Ayush Badoni",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 6.5,
+      "ar_type": "N/A",
+      "cricinfo_key": "1151270"
+    },
+    {
+      "player_name": "Aiden Markram",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 6.32,
+      "ar_type": "N/A",
+      "cricinfo_key": "600498"
+    },
+    {
+      "player_name": "Matthew Breetzke",
+      "role": "batter",
+      "player_type": "low_exp",
+      "final_score": 3.44,
+      "ar_type": "N/A",
+      "cricinfo_key": "595267"
+    },
+    {
+      "player_name": "Himmat Singh",
+      "role": "batter",
+      "player_type": "debutant",
+      "final_score": 2.5,
+      "ar_type": "N/A",
+      "cricinfo_key": "805235"
+    },
+    {
+      "player_name": "Rishabh Pant",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 6.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "931581"
+    },
+    {
+      "player_name": "Nicholas Pooran",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.74,
+      "ar_type": "N/A",
+      "cricinfo_key": "604302"
+    },
+    {
+      "player_name": "Mitchell Marsh",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.95,
+      "ar_type": "balanced",
+      "cricinfo_key": "272450"
+    },
+    {
+      "player_name": "Shahbaz Ahmed",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 5.78,
+      "ar_type": "balanced",
+      "cricinfo_key": "1159711"
+    },
+    {
+      "player_name": "Arshin Kulkarni",
+      "role": "allrounder",
+      "player_type": "low_exp",
+      "final_score": 2.45,
+      "ar_type": "bowling",
+      "cricinfo_key": "1403153"
+    },
+    {
+      "player_name": "Mayank Yadav",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 3.5,
+      "ar_type": "N/A",
+      "cricinfo_key": "1292563"
+    },
+    {
+      "player_name": "Avesh Khan",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 4.56,
+      "ar_type": "N/A",
+      "cricinfo_key": "694211"
+    },
+    {
+      "player_name": "Mohsin Khan",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 2.98,
+      "ar_type": "N/A",
+      "cricinfo_key": "1132005"
+    },
+    {
+      "player_name": "Manimaran Siddharth",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.19,
+      "ar_type": "N/A",
+      "cricinfo_key": "1151286"
+    },
+    {
+      "player_name": "Digvesh Rathi",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 2.49,
+      "ar_type": "N/A",
+      "cricinfo_key": "1460529"
+    },
+    {
+      "player_name": "Prince Yadav",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 1.67,
+      "ar_type": "N/A",
+      "cricinfo_key": "1350768"
+    },
+    {
+      "player_name": "Akash Singh",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 4.11,
+      "ar_type": "N/A",
+      "cricinfo_key": "1175458"
+    },
+    {
+      "player_name": "Mohammed Shami",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 5.87,
+      "ar_type": "N/A",
+      "cricinfo_key": "481896"
+    },
+    {
+      "player_name": "Arjun Tendulkar",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 4.1,
+      "ar_type": "N/A",
+      "cricinfo_key": "1148776"
+    },
+    {
+      "player_name": "Wanindu Hasaranga",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.31,
+      "ar_type": "bowling",
+      "cricinfo_key": "784379"
+    },
+    {
+      "player_name": "Anrich Nortje",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 6.6,
+      "ar_type": "N/A",
+      "cricinfo_key": "481979"
+    },
+    {
+      "player_name": "Mukul Choudhary",
+      "role": "batter",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "1354217"
+    },
+    {
+      "player_name": "Akshat Raghuwanshi",
+      "role": "batter",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "1300795"
+    },
+    {
+      "player_name": "Josh Inglis",
+      "role": "keeper",
+      "player_type": "young_established",
+      "final_score": 7.42,
+      "ar_type": "N/A",
+      "cricinfo_key": "662235"
+    }
+  ],
+  "DC": [
+    {
+      "player_name": "Nitish Rana",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 6.27,
+      "ar_type": "N/A",
+      "cricinfo_key": "604527"
+    },
+    {
+      "player_name": "Abishek Porel",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 6.73,
+      "ar_type": "N/A",
+      "cricinfo_key": "1277545"
+    },
+    {
+      "player_name": "Ajay Mandal",
+      "role": "allrounder",
+      "player_type": "inactive",
+      "final_score": 2.94,
+      "ar_type": "bowling",
+      "cricinfo_key": "1059570"
+    },
+    {
+      "player_name": "Ashutosh Sharma",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 7.48,
+      "ar_type": "balanced",
+      "cricinfo_key": "1131978"
+    },
+    {
+      "player_name": "Axar Patel",
+      "role": "allrounder",
+      "player_type": "established",
+      "final_score": 6.77,
+      "ar_type": "balanced",
+      "cricinfo_key": "554691"
+    },
+    {
+      "player_name": "Dushmantha Chameera",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 6.09,
+      "ar_type": "N/A",
+      "cricinfo_key": "552152"
+    },
+    {
+      "player_name": "Karun Nair",
+      "role": "batter",
+      "player_type": "young_established",
+      "final_score": 5.63,
+      "ar_type": "N/A",
+      "cricinfo_key": "398439"
+    },
+    {
+      "player_name": "KL Rahul",
+      "role": "keeper",
+      "player_type": "established",
+      "final_score": 7.07,
+      "ar_type": "N/A",
+      "cricinfo_key": "422108"
+    },
+    {
+      "player_name": "Kuldeep Yadav",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 7.12,
+      "ar_type": "N/A",
+      "cricinfo_key": "559235"
+    },
+    {
+      "player_name": "Madhav Tiwari",
+      "role": "allrounder",
+      "player_type": "low_exp",
+      "final_score": 2.58,
+      "ar_type": "bowling",
+      "cricinfo_key": "1460385"
+    },
+    {
+      "player_name": "Mitchell Starc",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 7.69,
+      "ar_type": "N/A",
+      "cricinfo_key": "311592"
+    },
+    {
+      "player_name": "Sameer Rizvi",
+      "role": "batter",
+      "player_type": "young_established",
+      "final_score": 4.94,
+      "ar_type": "N/A",
+      "cricinfo_key": "1175489"
+    },
+    {
+      "player_name": "T Natarajan",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.77,
+      "ar_type": "N/A",
+      "cricinfo_key": "802575"
+    },
+    {
+      "player_name": "Tripurana Vijay",
+      "role": "bowler",
+      "player_type": "inactive",
+      "final_score": 3.99,
+      "ar_type": "N/A",
+      "cricinfo_key": "1292527"
+    },
+    {
+      "player_name": "Tristan Stubbs",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 7.54,
+      "ar_type": "N/A",
+      "cricinfo_key": "595978"
+    },
+    {
+      "player_name": "Vipraj Nigam",
+      "role": "bowler",
+      "player_type": "young_established",
+      "final_score": 5.14,
+      "ar_type": "N/A",
+      "cricinfo_key": "1449074"
+    },
+    {
+      "player_name": "David Miller",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 6.49,
+      "ar_type": "N/A",
+      "cricinfo_key": "321777"
+    },
+    {
+      "player_name": "Pathum Nissanka",
+      "role": "batter",
+      "player_type": "debutant",
+      "final_score": 3.72,
+      "ar_type": "N/A",
+      "cricinfo_key": "1028655"
+    },
+    {
+      "player_name": "Lungi Ngidi",
+      "role": "bowler",
+      "player_type": "low_exp",
+      "final_score": 4.9,
+      "ar_type": "N/A",
+      "cricinfo_key": "542023"
+    },
+    {
+      "player_name": "Prithvi Shaw",
+      "role": "batter",
+      "player_type": "established",
+      "final_score": 5.72,
+      "ar_type": "N/A",
+      "cricinfo_key": "1070168"
+    },
+    {
+      "player_name": "Kyle Jamieson",
+      "role": "bowler",
+      "player_type": "low_exp",
+      "final_score": 4.56,
+      "ar_type": "N/A",
+      "cricinfo_key": "625960"
+    },
+    {
+      "player_name": "Mukesh  Kumar",
+      "role": "bowler",
+      "player_type": "established",
+      "final_score": 3.97,
+      "ar_type": "N/A",
+      "cricinfo_key": "926851"
+    }
+  ]
+}

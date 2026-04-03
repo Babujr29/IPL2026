@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IPL 2026 Squad Strength Index — Team Rankings</title>
+  <meta name="description" content="IPL 2026 team rankings — Analysis by SHIVAM. Compare batting, bowling and all-rounder strength across all 10 IPL franchises."/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div id="navbar-root"></div>
+
+<!-- HERO -->
+<div class="hero fade-in">
+  <p class="hero-eyebrow">Analysis by SHIVAM · IPL 2026</p>
+  <h1 class="hero-title">IPL 2026 — <span>Squad Strength</span> Index</h1>
+  <p class="hero-subtitle">Analysis by <em>SHIVAM</em> · Data-driven ratings across all 10 franchises</p>
+</div>
+
+<!-- MAIN -->
+<main class="container">
+  <section>
+    <div class="section-header">
+      <h2>🏆 Team Rankings</h2>
+      <div class="accent-line"></div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-bar">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <circle cx="6" cy="6" r="5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+          <path d="M10 10l3 3" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input id="team-search" type="text" placeholder="Search team..."/>
+      </div>
+
+      <select id="sort-metric" class="sort-dropdown">
+        <option value="team_score">Overall Strength</option>
+        <option value="bat_avg">Batting Strength</option>
+        <option value="bowl_avg">Bowling Strength</option>
+        <option value="ar_avg">All-rounder Strength</option>
+      </select>
+
+      <div class="slider-wrap">
+        <label>Min Score</label>
+        <input id="min-score" type="range" min="0" max="10" step="0.1" value="0"/>
+        <span id="min-score-val">0.0</span>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="data-table-wrap glass-card">
+      <table id="teams-table">
+        <thead>
+          <tr>
+            <th data-col="rank">Rank</th>
+            <th>Team</th>
+            <th data-col="bat_avg">Batting Strength</th>
+            <th data-col="bowl_avg">Bowling Strength</th>
+            <th data-col="ar_avg">All-rounder Strength</th>
+            <th data-col="team_score">Overall Strength</th>
+            <th>Relative</th>
+          </tr>
+        </thead>
+        <tbody id="teams-tbody">
+          <tr><td colspan="7" style="text-align:center;padding:3rem;"><div class="spinner"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<div id="footer-root"></div>
+<script src="app.js"></script>
+<script src="babujr.js"></script>
+<script>
+(async () => {
+  document.getElementById('navbar-root').innerHTML = buildNavbar('home');
+
+  const { teams } = await loadData();
+  populateTeamNavMenu(teams);
+  document.getElementById('footer-root').innerHTML = buildFooter();
+
+  // Compute max for bars
+  const maxScore = Math.max(...teams.map(t => t.team_score), 10);
+
+  let currentData = [...teams];
+
+  function renderTable(data) {
+    const tbody = document.getElementById('teams-tbody');
+    if (!data.length) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--muted)">No teams match your filters.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = data.map((t, i) => {
+      const rank = i + 1; // re-rank after filter
+      const pct  = (t.team_score / maxScore * 100).toFixed(1);
+      const color = TEAM_COLORS[t.team] || '#FFD700';
+      return `<tr onclick="location.href='team.html?team=${t.team}'" style="cursor:pointer;">
+        <td>${rankBadge(t.rank)}</td>
+        <td>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            ${teamLogoHTML(t.team, 36)}
+            <div>
+              <div class="team-name-bold" style="color:${color}">${TEAM_FULL[t.team]||t.team}</div>
+              <div style="font-size:0.72rem;color:var(--muted)">${t.team}</div>
+            </div>
+          </div>
+        </td>
+        <td>${strengthBar(t.bat_avg, maxScore)}</td>
+        <td>${strengthBar(t.bowl_avg, maxScore)}</td>
+        <td>${strengthBar(t.ar_avg, maxScore)}</td>
+        <td>${scoreBadge(t.team_score, true)}</td>
+        <td>
+          <div class="strength-bar" style="max-width:100px">
+            <div class="strength-bar-fill" style="width:${pct}%;background:${color}88"></div>
+          </div>
+        </td>
+      </tr>`;
+    }).join('');
+    animateAllCounters();
+  }
+
+  function applyFilters() {
+    const search   = document.getElementById('team-search').value.toLowerCase();
+    const sortCol  = document.getElementById('sort-metric').value;
+    const minScore = +document.getElementById('min-score').value;
+
+    currentData = [...teams]
+      .filter(t => (TEAM_FULL[t.team]||t.team).toLowerCase().includes(search))
+      .filter(t => t[sortCol] >= minScore)
+      .sort((a,b) => b[sortCol] - a[sortCol]);
+    renderTable(currentData);
+
+    // Highlight active sort column header
+    document.querySelectorAll('#teams-table thead th').forEach(th => {
+      th.classList.remove('sort-desc');
+      if (th.dataset.col === sortCol) th.classList.add('sort-desc');
+    });
+  }
+
+  document.getElementById('team-search').addEventListener('input',   applyFilters);
+  document.getElementById('sort-metric').addEventListener('change',  applyFilters);
+  document.getElementById('min-score').addEventListener('input', e => {
+    document.getElementById('min-score-val').textContent = (+e.target.value).toFixed(1);
+    applyFilters();
+  });
+
+  // Column header click sort
+  document.querySelectorAll('#teams-table thead th[data-col]').forEach(th => {
+    th.addEventListener('click', () => {
+      document.getElementById('sort-metric').value = th.dataset.col;
+      applyFilters();
+    });
+  });
+
+  renderTable(teams);
+})();
+</script>
+</body>
+</html>

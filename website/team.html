@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Deep Dive — IPL 2026 Squad Strength Index</title>
+  <meta name="description" content="Full squad breakdown for any IPL 2026 team with animated gauges, player cards, and stacked bar charts — Analysis by SHIVAM."/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .team-hero { display:flex; align-items:center; gap:1.5rem; padding:2.5rem 0 1rem; flex-wrap:wrap; }
+    .team-hero-info h1 { margin-bottom: 0.25rem; }
+    .team-hero-info p  { color: var(--muted); font-size: 0.9rem; }
+    .role-section { margin-top: 2rem; }
+    .role-section h3 { font-family:'Rajdhani',sans-serif; font-size:1.2rem; margin-bottom:1rem; color:var(--gold); }
+    .full-squad-table tbody tr { cursor: default; }
+  </style>
+</head>
+<body>
+<div id="navbar-root"></div>
+
+<main class="container">
+  <div id="page-content">
+    <div style="text-align:center;padding:5rem"><div class="spinner"></div></div>
+  </div>
+</main>
+
+<div id="footer-root"></div>
+<script src="app.js"></script>
+<script src="babujr.js"></script>
+<script>
+(async () => {
+  document.getElementById('navbar-root').innerHTML = buildNavbar('');
+  const { teams, players, squads } = await loadData();
+  populateTeamNavMenu(teams);
+  document.getElementById('footer-root').innerHTML = buildFooter();
+
+  const teamId = getParam('team') || 'MI';
+  const teamData  = teams.find(t => t.team === teamId);
+  const squadList = squads[teamId] || [];
+  const teamPlayers = players.filter(p => p.team === teamId);
+
+  if (!teamData) {
+    document.getElementById('page-content').innerHTML =
+      '<p style="color:var(--muted);padding:3rem;text-align:center">Team not found.</p>';
+    return;
+  }
+
+  const color = TEAM_COLORS[teamId] || '#FFD700';
+  const maxScore = Math.max(...teams.map(t=>t.team_score));
+
+  // ── Gauge SVG ────────────────────────────────────────────────────────
+  function gaugeRing(label, value, color, max=10) {
+    const r = 54, circum = 2*Math.PI*r;
+    const pct = Math.min(value/max, 1);
+    const dash = pct * circum;
+    return `<div class="gauge-wrap">
+      <svg class="gauge-svg" width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="${r}" stroke="rgba(255,255,255,0.08)" stroke-width="10" fill="none"/>
+        <circle class="gauge-circle" cx="65" cy="65" r="${r}"
+          stroke="${color}" stroke-width="10" fill="none"
+          stroke-dasharray="${dash.toFixed(2)} ${circum.toFixed(2)}"
+          stroke-linecap="round"/>
+        <text x="65" y="60" text-anchor="middle" fill="${color}"
+          font-family="Rajdhani,sans-serif" font-weight="700" font-size="20"
+          transform="rotate(90,65,65)">${value.toFixed(2)}</text>
+        <text x="65" y="76" text-anchor="middle" fill="rgba(255,255,255,0.5)"
+          font-family="Inter,sans-serif" font-size="9"
+          transform="rotate(90,65,65)">/ 10</text>
+      </svg>
+      <div class="gauge-label">${label}</div>
+    </div>`;
+  }
+
+  // ── Stacked bar chart ────────────────────────────────────────────────
+  function stackedBar(bat, bowl, ar) {
+    const total = bat + bowl + ar || 1;
+    const bPct  = (bat  / total * 100).toFixed(1);
+    const wPct  = (bowl / total * 100).toFixed(1);
+    const aPct  = (ar   / total * 100).toFixed(1);
+    return `<div class="stacked-bar-wrap glass-card" style="padding:1.25rem">
+      <h3 style="font-family:Rajdhani,sans-serif;color:var(--gold);margin-bottom:1rem">📊 Score Composition</h3>
+      <div class="stacked-bar-label">How each unit contributes to TeamScore</div>
+      <div class="stacked-bar" style="margin-top:0.5rem">
+        <div class="stacked-segment" style="width:${bPct}%;background:#F9CD1C;color:#000" title="Batting ${bPct}%">
+          ${bPct>10?'BAT':''}
+        </div>
+        <div class="stacked-segment" style="width:${wPct}%;background:#00D4FF;color:#000" title="Bowling ${wPct}%">
+          ${wPct>10?'BOWL':''}
+        </div>
+        <div class="stacked-segment" style="width:${aPct}%;background:#A0E00A;color:#000" title="AR ${aPct}%">
+          ${aPct>10?'AR':''}
+        </div>
+      </div>
+      <div style="display:flex;gap:1.5rem;margin-top:0.75rem;font-size:0.78rem;color:var(--muted)">
+        <div><span style="color:#F9CD1C">■</span> Batting ${bPct}%</div>
+        <div><span style="color:#00D4FF">■</span> Bowling ${wPct}%</div>
+        <div><span style="color:#A0E00A">■</span> All-rounders ${aPct}%</div>
+      </div>
+    </div>`;
+  }
+
+  // ── Feature cards (top 3 per role) ───────────────────────────────────
+  function top3Cards(pool, scoreKey) {
+    const sorted = [...pool].sort((a,b) => b[scoreKey]-a[scoreKey]).slice(0,3);
+    return `<div class="feature-cards staggered">
+      ${sorted.map((p,i) => `
+        <div class="feature-card glass-card" style="border-left:3px solid ${TEAM_COLORS[p.team]||color}">
+          ${avatarHTML(p, 48)}
+          <div class="fc-info">
+            <h4>${p.player_name}</h4>
+            <span>${typePill(p.player_type)} ${p.ar_type && p.ar_type!=='N/A' ? `<span class="type-pill established">${p.ar_type}</span>` : ''}</span>
+          </div>
+          <div class="fc-score counter" data-val="${+p[scoreKey]||0}" data-dec="2">${(+p[scoreKey]||0).toFixed(2)}</div>
+        </div>`).join('')}
+    </div>`;
+  }
+
+  // ── Full squad table ──────────────────────────────────────────────────
+  function squadTable(players) {
+    return `<div class="data-table-wrap glass-card full-squad-table" style="margin-top:1rem">
+      <table>
+        <thead><tr>
+          <th>Player</th><th>Role</th><th>Type</th>
+          <th>Form</th><th>Aura</th><th>Score</th>
+        </tr></thead>
+        <tbody>
+          ${players.sort((a,b)=>b.final_score-a.final_score).map(p => {
+            const sKey = p.role==='bowler'?'bowler_score':p.role==='allrounder'?'ar_score':'batter_score';
+            const fKey = p.role==='bowler'?'bowl_form_norm':'bat_form_norm';
+            const aKey = p.role==='bowler'?'bowl_aura_norm':'bat_aura_norm';
+            return `<tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:0.6rem">
+                  ${avatarHTML(p,36)}
+                  <span>${p.player_name}</span>
+                </div>
+              </td>
+              <td style="text-transform:capitalize">${p.role}</td>
+              <td>${typePill(p.player_type)}</td>
+              <td>${scoreBadge(p[fKey])}</td>
+              <td>${scoreBadge(p[aKey])}</td>
+              <td>${scoreBadge(p[sKey], true)}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>`;
+  }
+
+  // ── Assemble page ─────────────────────────────────────────────────────
+  const batters     = teamPlayers.filter(p => ['batter','keeper'].includes(p.role));
+  const bowlers     = teamPlayers.filter(p => p.role==='bowler');
+  const allrounders = teamPlayers.filter(p => p.role==='allrounder');
+
+  document.getElementById('page-content').innerHTML = `
+    <!-- Team Hero -->
+    <div class="team-hero fade-in">
+      ${teamLogoHTML(teamId, 72)}
+      <div class="team-hero-info">
+        <h1 style="color:${color}">${TEAM_FULL[teamId]||teamId}</h1>
+        <p>IPL 2026 · Rank <strong style="color:var(--gold)">#${teamData.rank}</strong> overall</p>
+        <div style="display:flex;gap:0.5rem;margin-top:0.5rem">
+          ${rankBadge(teamData.rank)}
+          ${scoreBadge(teamData.team_score, true)}
+        </div>
+      </div>
+    </div>
+
+    <!-- Gauges -->
+    <div class="glass-card" style="padding:1.5rem;margin-bottom:1.5rem">
+      <h2 style="font-family:Rajdhani,sans-serif;margin-bottom:1.25rem">Strength Gauges</h2>
+      <div class="gauge-row">
+        ${gaugeRing('Batting',          teamData.bat_avg,  '#F9CD1C')}
+        ${gaugeRing('Bowling',          teamData.bowl_avg, '#00D4FF')}
+        ${gaugeRing('All-rounders',     teamData.ar_avg,   '#A0E00A')}
+        ${gaugeRing('Overall',          teamData.team_score,'#FFD700', Math.max(maxScore,10))}
+      </div>
+    </div>
+
+    <!-- Stacked Bar -->
+    ${stackedBar(teamData.bat_avg, teamData.bowl_avg, teamData.ar_avg)}
+
+    <!-- Batters -->
+    <div class="role-section">
+      <h3>🏏 Top Batters</h3>
+      ${top3Cards(batters, 'batter_score')}
+    </div>
+
+    <!-- Bowlers -->
+    <div class="role-section">
+      <h3>🎳 Top Bowlers</h3>
+      ${top3Cards(bowlers, 'bowler_score')}
+    </div>
+
+    <!-- All-rounders -->
+    <div class="role-section">
+      <h3>⚡ Top All-rounders</h3>
+      ${top3Cards(allrounders, 'ar_score')}
+    </div>
+
+    <!-- Full squad -->
+    <div class="role-section">
+      <div class="section-header">
+        <h2>Full Squad</h2>
+        <div class="accent-line"></div>
+      </div>
+      ${squadTable(teamPlayers)}
+    </div>`;
+
+  animateAllCounters();
+  setupScrollAnimations();
+})();
+</script>
+</body>
+</html>

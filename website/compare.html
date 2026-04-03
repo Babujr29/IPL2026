@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Player Comparison — IPL 2026 Squad Strength Index</title>
+  <meta name="description" content="Compare any two IPL 2026 players side-by-side with a radar chart — Analysis by SHIVAM."/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .selector-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .vs-badge {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-align: center;
+    }
+    .player-select-wrap { display: flex; flex-direction: column; gap: 0.5rem; }
+    .player-select-wrap label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+    .player-select-wrap select {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.65rem 1rem;
+      color: var(--white);
+      font-size: 0.85rem;
+      outline: none;
+      width: 100%;
+    }
+    .compare-section { margin-top: 2rem; }
+    @media (max-width: 600px) {
+      .selector-row { grid-template-columns: 1fr; }
+      .vs-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div id="navbar-root"></div>
+
+<div class="hero fade-in" style="padding:3.5rem 2rem 2rem">
+  <p class="hero-eyebrow">Analysis by SHIVAM · IPL 2026</p>
+  <h1 class="hero-title">Player <span>Comparison</span></h1>
+  <p class="hero-subtitle">Select any two players for a head-to-head breakdown</p>
+</div>
+
+<main class="container">
+  <section>
+    <!-- Player selectors -->
+    <div class="selector-row glass-card" style="padding:1.5rem">
+      <div class="player-select-wrap">
+        <label>Player 1</label>
+        <select id="player1-select">
+          <option value="">— Select player —</option>
+        </select>
+      </div>
+      <div class="vs-badge">VS</div>
+      <div class="player-select-wrap">
+        <label>Player 2</label>
+        <select id="player2-select">
+          <option value="">— Select player —</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Comparison output -->
+    <div id="compare-output" class="compare-section" style="display:none">
+      <div class="compare-grid staggered" id="compare-cards"></div>
+
+      <!-- Radar chart -->
+      <div class="glass-card" style="padding:1.5rem;margin-top:1.5rem;text-align:center">
+        <h3 style="margin-bottom:1rem;font-family:Rajdhani,sans-serif;color:var(--gold)">📊 Radar Comparison</h3>
+        <canvas id="radar-canvas" width="380" height="300"></canvas>
+        <div style="display:flex;justify-content:center;gap:2rem;margin-top:0.75rem;font-size:0.8rem">
+          <div style="display:flex;align-items:center;gap:0.5rem"><span style="width:12px;height:12px;background:var(--gold);border-radius:50%;display:inline-block"></span><span id="legend-p1">Player 1</span></div>
+          <div style="display:flex;align-items:center;gap:0.5rem"><span style="width:12px;height:12px;background:var(--teal);border-radius:50%;display:inline-block"></span><span id="legend-p2">Player 2</span></div>
+        </div>
+      </div>
+
+      <!-- Winner banner -->
+      <div class="winner-banner" id="winner-banner" style="margin-top:1.5rem;display:none">
+        <h3 id="winner-text">🏆 Winner</h3>
+      </div>
+    </div>
+
+    <div id="compare-placeholder" style="text-align:center;padding:4rem;color:var(--muted)">
+      <div style="font-size:3rem;margin-bottom:1rem">⚡</div>
+      <p>Select two players above to start comparing</p>
+    </div>
+  </section>
+</main>
+
+<div id="footer-root"></div>
+<script src="app.js"></script>
+<script src="babujr.js"></script>
+<script>
+(async () => {
+  document.getElementById('navbar-root').innerHTML = buildNavbar('cmp');
+  const { teams, players } = await loadData();
+  populateTeamNavMenu(teams);
+  document.getElementById('footer-root').innerHTML = buildFooter();
+
+  // Populate selects
+  const sorted = [...players].sort((a,b) => a.player_name.localeCompare(b.player_name));
+  const opts = sorted.map(p =>
+    `<option value="${p.cricsheet_id}">${p.player_name} — ${p.team} (${p.role})</option>`
+  ).join('');
+  document.getElementById('player1-select').innerHTML += opts;
+  document.getElementById('player2-select').innerHTML += opts;
+
+  let p1 = null, p2 = null;
+
+  function getPlayer(id) { return players.find(p => p.cricsheet_id === id); }
+
+  function statRow(label, v1, v2, highlight=false) {
+    const better1 = (+v1 || 0) >= (+v2 || 0);
+    return `<div class="stat-row">
+      <span class="stat-label">${label}</span>
+      <span class="stat-value ${highlight&&better1?'highlight':''}">${v1 != null ? (+v1).toFixed(2) : '—'}</span>
+    </div>`;
+  }
+  function statRow2(label, v1, v2, highlight=false) {
+    const better2 = (+v2 || 0) > (+v1 || 0);
+    return `<div class="stat-row">
+      <span class="stat-label">${label}</span>
+      <span class="stat-value ${highlight&&better2?'highlight':''}">${v2 != null ? (+v2).toFixed(2) : '—'}</span>
+    </div>`;
+  }
+
+  function buildCard(p, other, side) {
+    const color = TEAM_COLORS[p.team] || '#FFD700';
+    const isBetter = (key) => {
+      const v1 = +p[key]||0, v2 = +other[key]||0;
+      return side==='left' ? v1>=v2 : v2>v1;
+    };
+    const isRole = (r) => (p.role===r) || (p.role===r);
+    const scoreKey = p.role==='bowler' ? 'bowler_score' : p.role==='allrounder' ? 'ar_score' : 'batter_score';
+
+    const batStats = `
+      ${statRow('Batting Avg', p.bat_avg, other.bat_avg, isBetter('bat_avg'))}
+      ${statRow('Strike Rate', p.bat_sr,  other.bat_sr,  isBetter('bat_sr'))}
+      ${statRow('Boundary %', p.boundary_pct, other.boundary_pct, isBetter('boundary_pct'))}`;
+    const bowlStats = `
+      ${statRow('Economy',   p.economy,   other.economy,   !isBetter('economy'))}
+      ${statRow('Bowl SR',   p.bowl_sr,   other.bowl_sr,   !isBetter('bowl_sr'))}
+      ${statRow('Dot Ball %',p.dot_pct,   other.dot_pct,   isBetter('dot_pct'))}`;
+
+    let stats = '';
+    if (['batter','keeper'].includes(p.role)) stats = batStats;
+    else if (p.role==='bowler') stats = bowlStats;
+    else stats = batStats + bowlStats;
+
+    return `
+    <div class="compare-card" style="border-top:3px solid ${color}">
+      <div class="player-header">
+        ${avatarHTML(p, 60)}
+        <div class="player-info">
+          <h3 style="color:${color}">${p.player_name}</h3>
+          <span>${TEAM_FULL[p.team]||p.team} · ${p.role.charAt(0).toUpperCase()+p.role.slice(1)}</span><br>
+          <span>${typePill(p.player_type)}</span>
+        </div>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Form Score</span>
+        <span class="stat-value ${isBetter('bat_form_norm')?'highlight':''}">${(+p.bat_form_norm||0).toFixed(2)}</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Aura Score</span>
+        <span class="stat-value ${isBetter('bat_aura_norm')?'highlight':''}">${(+p.bat_aura_norm||0).toFixed(2)}</span>
+      </div>
+      <div class="stat-row" style="border-bottom:2px solid var(--border);margin-bottom:0.5rem;padding-bottom:0.75rem">
+        <span class="stat-label" style="font-weight:700">Final Score</span>
+        <span class="stat-value highlight" style="font-size:1.1rem;color:var(--gold)">${(+p[scoreKey]||0).toFixed(2)}</span>
+      </div>
+      ${stats}
+    </div>`;
+  }
+
+  // ── Radar chart (pure Canvas) ──────────────────────────────────────────
+  function drawRadar(p1, p2) {
+    const canvas = document.getElementById('radar-canvas');
+    const ctx    = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
+
+    const cx = W/2, cy = H/2, R = Math.min(W,H)/2 - 40;
+    const axes = ['Final Score','Form Score','Aura Score','Bat Avg','Economy','Dot %'];
+    const N = axes.length;
+
+    function getVals(p) {
+      const scoreKey = p.role==='bowler'?'bowler_score':p.role==='allrounder'?'ar_score':'batter_score';
+      return [
+        (+p[scoreKey]||0)/10, (+p.bat_form_norm||0)/10, (+p.bat_aura_norm||0)/10,
+        Math.min((+p.bat_avg||0)/100,1), 1-Math.min((+p.economy||0)/15,1), (+p.dot_pct||0)/100,
+      ];
+    }
+
+    function angle(i) { return (i/N)*2*Math.PI - Math.PI/2; }
+    function point(i, r) {
+      return { x: cx + r*Math.cos(angle(i)), y: cy + r*Math.sin(angle(i)) };
+    }
+
+    // Draw grid
+    [0.2,0.4,0.6,0.8,1.0].forEach(frac => {
+      ctx.beginPath();
+      for(let i=0;i<=N;i++) { const p=point(i%N,frac*R); i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y); }
+      ctx.closePath();
+      ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+
+    // Draw axes + labels
+    for(let i=0;i<N;i++) {
+      const p = point(i, R);
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(p.x, p.y);
+      ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      // Label
+      const lp = point(i, R+22);
+      ctx.fillStyle = 'rgba(255,255,255,0.65)';
+      ctx.font = '10px Inter, sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(axes[i], lp.x, lp.y);
+    }
+
+    // Draw player polygons
+    [[p1,'#FFD700',0.3],[p2,'#00D4FF',0.3]].forEach(([p, color, alpha]) => {
+      const vals = getVals(p);
+      ctx.beginPath();
+      for(let i=0;i<N;i++) {
+        const pt = point(i, vals[i]*R);
+        i===0 ? ctx.moveTo(pt.x,pt.y) : ctx.lineTo(pt.x,pt.y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = color + Math.round(alpha*255).toString(16).padStart(2,'0');
+      ctx.fill();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    });
+  }
+
+  function compare() {
+    if (!p1 || !p2) return;
+
+    document.getElementById('compare-output').style.display = '';
+    document.getElementById('compare-placeholder').style.display = 'none';
+
+    document.getElementById('compare-cards').innerHTML =
+      buildCard(p1, p2, 'left') + buildCard(p2, p1, 'right');
+
+    document.getElementById('legend-p1').textContent = p1.player_name;
+    document.getElementById('legend-p2').textContent = p2.player_name;
+    drawRadar(p1, p2);
+
+    // Winner
+    const sk = r => r==='bowler'?'bowler_score':r==='allrounder'?'ar_score':'batter_score';
+    const s1 = +p1[sk(p1.role)]||0;
+    const s2 = +p2[sk(p2.role)]||0;
+    const winner = s1 > s2 ? p1 : p2;
+    const banner = document.getElementById('winner-banner');
+    banner.style.display = '';
+    document.getElementById('winner-text').innerHTML =
+      `🏆 <span style="color:${TEAM_COLORS[winner.team]||'#FFD700'}">${winner.player_name}</span> wins! <small style="font-size:0.7em;color:var(--muted)">(${(+winner[sk(winner.role)]).toFixed(2)} vs ${s1>s2?s2.toFixed(2):s1.toFixed(2)})</small>`;
+  }
+
+  document.getElementById('player1-select').addEventListener('change', e => {
+    p1 = getPlayer(e.target.value); compare();
+  });
+  document.getElementById('player2-select').addEventListener('change', e => {
+    p2 = getPlayer(e.target.value); compare();
+  });
+})();
+</script>
+</body>
+</html>

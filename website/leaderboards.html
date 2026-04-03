@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Player Leaderboards — IPL 2026 Squad Strength Index</title>
+  <meta name="description" content="Top batters, bowlers and all-rounders across all IPL 2026 franchises — Analysis by SHIVAM."/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .player-row td { vertical-align: middle; }
+    .player-name-cell { display:flex; align-items:center; gap:0.75rem; }
+    .player-name-text h4 { font-size:0.9rem; margin-bottom:0.15rem; }
+    .player-name-text span { font-size:0.75rem; color:var(--muted); }
+  </style>
+</head>
+<body>
+
+<div id="navbar-root"></div>
+
+<div class="hero fade-in" style="padding:3.5rem 2rem 2rem">
+  <p class="hero-eyebrow">Analysis by SHIVAM · IPL 2026</p>
+  <h1 class="hero-title">Player <span>Leaderboards</span></h1>
+  <p class="hero-subtitle">Top performers rated across batting, bowling and all-round skill</p>
+</div>
+
+<main class="container">
+  <section>
+    <!-- Tabs -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="batters" id="tab-batters">🏏 Batters</button>
+      <button class="tab-btn" data-tab="bowlers"  id="tab-bowlers">🎳 Bowlers</button>
+      <button class="tab-btn" data-tab="allrounders" id="tab-allrounders">⚡ All-rounders</button>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-bar">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <circle cx="6" cy="6" r="5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+          <path d="M10 10l3 3" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input id="player-search" type="text" placeholder="Search player..."/>
+      </div>
+      <select id="filter-team">
+        <option value="">All Teams</option>
+        <option value="CSK">CSK</option><option value="MI">MI</option>
+        <option value="KKR">KKR</option><option value="RCB">RCB</option>
+        <option value="PBKS">PBKS</option><option value="GT">GT</option>
+        <option value="RR">RR</option><option value="SRH">SRH</option>
+        <option value="LSG">LSG</option><option value="DC">DC</option>
+      </select>
+      <select id="filter-type">
+        <option value="">All Types</option>
+        <option value="established">Established</option>
+        <option value="young_established">Young</option>
+        <option value="debutant">Debutant</option>
+        <option value="low_exp">Low Exp</option>
+        <option value="inactive">Inactive</option>
+      </select>
+    </div>
+
+    <!-- Leaderboard tables (one shown at a time) -->
+    <div id="leaderboard-batters" class="data-table-wrap glass-card">
+      <table id="bat-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th data-col="team">Team</th>
+            <th>Type</th>
+            <th data-col="bat_form_norm">Form Score</th>
+            <th data-col="bat_aura_norm">Aura Score</th>
+            <th data-col="batter_score">Final Score</th>
+          </tr>
+        </thead>
+        <tbody id="bat-tbody">
+          <tr><td colspan="7" style="text-align:center;padding:2rem;"><div class="spinner"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="leaderboard-bowlers" class="data-table-wrap glass-card" style="display:none">
+      <table id="bowl-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th data-col="team">Team</th>
+            <th>Type</th>
+            <th data-col="bowl_form_norm">Form Score</th>
+            <th data-col="bowl_aura_norm">Aura Score</th>
+            <th data-col="bowler_score">Final Score</th>
+          </tr>
+        </thead>
+        <tbody id="bowl-tbody">
+          <tr><td colspan="7"><div class="spinner"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="leaderboard-allrounders" class="data-table-wrap glass-card" style="display:none">
+      <table id="ar-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th data-col="team">Team</th>
+            <th>AR Type</th>
+            <th data-col="ar_bat_component">Bat Component</th>
+            <th data-col="ar_bowl_component">Bowl Component</th>
+            <th data-col="ar_score">Final Score</th>
+          </tr>
+        </thead>
+        <tbody id="ar-tbody">
+          <tr><td colspan="7"><div class="spinner"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div id="footer-root"></div>
+<script src="app.js"></script>
+<script src="babujr.js"></script>
+<script>
+(async () => {
+  document.getElementById('navbar-root').innerHTML = buildNavbar('lead');
+  const { teams, players } = await loadData();
+  populateTeamNavMenu(teams);
+  document.getElementById('footer-root').innerHTML = buildFooter();
+
+  const batters     = players.filter(p => ['batter','keeper'].includes(p.role));
+  const bowlers     = players.filter(p => p.role === 'bowler');
+  const allrounders = players.filter(p => p.role === 'allrounder');
+
+  let activeTab = 'batters';
+
+  function playerRow(p, rank, scoreKey, formKey, auraKey, isAR=false) {
+    const color = TEAM_COLORS[p.team] || '#FFD700';
+    if (!isAR) {
+      return `<tr class="player-row">
+        <td>${rankBadge(rank)}</td>
+        <td>
+          <div class="player-name-cell">
+            ${avatarHTML(p, 40)}
+            <div class="player-name-text">
+              <h4>${p.player_name}</h4>
+              <span>${TEAM_FULL[p.team]||p.team}</span>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            ${teamLogoHTML(p.team, 24)}
+            <span style="color:${color};font-weight:600;font-size:0.8rem;">${p.team}</span>
+          </div>
+        </td>
+        <td>${typePill(p.player_type)}</td>
+        <td>${scoreBadge(p[formKey])}</td>
+        <td>${scoreBadge(p[auraKey])}</td>
+        <td>${scoreBadge(p[scoreKey], true)}</td>
+      </tr>`;
+    } else {
+      const arLabel = {batting:'⚔ Bat AR',bowling:'🎳 Bowl AR',balanced:'⚖ Balanced'}[p.ar_type]||p.ar_type;
+      return `<tr class="player-row">
+        <td>${rankBadge(rank)}</td>
+        <td>
+          <div class="player-name-cell">
+            ${avatarHTML(p, 40)}
+            <div class="player-name-text"><h4>${p.player_name}</h4><span>${TEAM_FULL[p.team]||p.team}</span></div>
+          </div>
+        </td>
+        <td>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            ${teamLogoHTML(p.team, 24)}
+            <span style="color:${color};font-weight:600;font-size:0.8rem;">${p.team}</span>
+          </div>
+        </td>
+        <td><span class="type-pill established">${arLabel}</span></td>
+        <td>${scoreBadge(p.ar_bat_component)}</td>
+        <td>${scoreBadge(p.ar_bowl_component)}</td>
+        <td>${scoreBadge(p.ar_score, true)}</td>
+      </tr>`;
+    }
+  }
+
+  function getFiltered(pool) {
+    const search = document.getElementById('player-search').value.toLowerCase();
+    const team   = document.getElementById('filter-team').value;
+    const type   = document.getElementById('filter-type').value;
+    return pool
+      .filter(p => p.player_name.toLowerCase().includes(search))
+      .filter(p => !team || p.team === team)
+      .filter(p => !type || p.player_type === type);
+  }
+
+  function renderBatters() {
+    const data = getFiltered(batters).sort((a,b) => b.batter_score - a.batter_score);
+    document.getElementById('bat-tbody').innerHTML = data.slice(0,30).map((p,i) =>
+      playerRow(p, i+1, 'batter_score', 'bat_form_norm', 'bat_aura_norm')
+    ).join('') || '<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:1.5rem">No results</td></tr>';
+  }
+  function renderBowlers() {
+    const data = getFiltered(bowlers).sort((a,b) => b.bowler_score - a.bowler_score);
+    document.getElementById('bowl-tbody').innerHTML = data.slice(0,30).map((p,i) =>
+      playerRow(p, i+1, 'bowler_score', 'bowl_form_norm', 'bowl_aura_norm')
+    ).join('') || '<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:1.5rem">No results</td></tr>';
+  }
+  function renderAllrounders() {
+    const data = getFiltered(allrounders).sort((a,b) => b.ar_score - a.ar_score);
+    document.getElementById('ar-tbody').innerHTML = data.slice(0,30).map((p,i) =>
+      playerRow(p, i+1, 'ar_score', 'bat_form_norm', 'bat_aura_norm', true)
+    ).join('') || '<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:1.5rem">No results</td></tr>';
+  }
+
+  function switchTab(tab) {
+    activeTab = tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+    document.getElementById('leaderboard-batters').style.display    = tab==='batters'     ? '' : 'none';
+    document.getElementById('leaderboard-bowlers').style.display    = tab==='bowlers'     ? '' : 'none';
+    document.getElementById('leaderboard-allrounders').style.display= tab==='allrounders' ? '' : 'none';
+    if (tab==='batters')     renderBatters();
+    if (tab==='bowlers')     renderBowlers();
+    if (tab==='allrounders') renderAllrounders();
+  }
+
+  document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+  ['player-search','filter-team','filter-type'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+      if (activeTab==='batters')     renderBatters();
+      if (activeTab==='bowlers')     renderBowlers();
+      if (activeTab==='allrounders') renderAllrounders();
+    });
+    document.getElementById(id).addEventListener('change', () => {
+      if (activeTab==='batters')     renderBatters();
+      if (activeTab==='bowlers')     renderBowlers();
+      if (activeTab==='allrounders') renderAllrounders();
+    });
+  });
+
+  switchTab('batters');
+})();
+</script>
+</body>
+</html>
