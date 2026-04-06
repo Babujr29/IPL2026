@@ -53,6 +53,7 @@ function buildNavbar(activePage) {
       <a href="index.html"       class="${activePage==='home'?'active':''}">Home</a>
       <a href="leaderboards.html" class="${activePage==='lead'?'active':''}">Leaderboards</a>
       <a href="compare.html"     class="${activePage==='cmp'?'active':''}">Compare</a>
+      <a href="fantasy.html"     class="${activePage==='fantasy'?'active':''}">⚡ Fantasy XI</a>
       <div class="team-dropdown">
         <div class="team-dropdown-btn">
           Teams <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
