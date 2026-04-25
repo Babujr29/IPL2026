@@ -275,6 +275,7 @@ def load_all_deliveries(squad_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFr
         mdate = parsed["match_date"]
         comp  = parsed["competition"]
 
+        # Form window: any T20 from FORM_START_DATE (including IPL 2026)
         is_form_window = (mdate >= FORM_START_DATE)
         is_ipl_aura    = (comp in IPL_COMPETITION_NAMES and
                           mdate.year in IPL_AURA_SEASONS)

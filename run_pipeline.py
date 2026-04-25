@@ -66,8 +66,8 @@ def main():
     print(f"  IPL aura metrics rows : {len(ipl_metrics)}")
 
     if ipl_metrics.empty:
-        print("  ⚠  No IPL YAML files found — aura scores will default to 0.")
-        print("     Drop IPL YAML files into the project root and re-run.")
+        print("  [WARN] No IPL YAML files found - aura scores will default to 0.")
+        print("     Drop IPL YAML files into the data/ folder and re-run.")
 
     # ── Step 6: Run rating formulas ─────────────────────────────────
     print("\n[6/7] Running player rating formulas (Steps 1–7)...")
@@ -105,7 +105,7 @@ def main():
     print(f"  [Export] CSVs saved to {out_dir}/")
 
     elapsed = time.time() - t0
-    print(f"\n✓ Pipeline complete in {elapsed:.1f}s")
+    print(f"[DONE] Pipeline complete in {elapsed:.1f}s")
     print("=" * 60)
 
 

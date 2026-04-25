@@ -8,10 +8,10 @@ from datetime import date
 
 # ── Paths ────────────────────────────────────────────────────────────────────
 BASE_DIR        = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-YAML_DIR        = BASE_DIR                        # YAMLs sit at project root
+YAML_DIR        = os.path.join(BASE_DIR, "data")     # YAMLs are in the data/ subfolder
 PEOPLE_CSV      = os.path.join(BASE_DIR, "people.csv")
 SQUAD_CSV       = os.path.join(BASE_DIR, "ipl2026_squads_name_team.csv")
-WEBSITE_DATA    = os.path.join(BASE_DIR, "website", "data")
+WEBSITE_DATA    = os.path.join(BASE_DIR, "docs", "data")
 
 # ── Form window ──────────────────────────────────────────────────────────────
 # Form counts from 2024 onwards
@@ -19,7 +19,7 @@ FORM_START_DATE = date(2024, 1, 1)
 
 # ── IPL Aura ─────────────────────────────────────────────────────────────────
 # Last 3 IPL seasons to include in aura calculation
-IPL_AURA_SEASONS        = {2023, 2024, 2025}
+IPL_AURA_SEASONS        = {2023, 2024, 2025, 2026}  # Last 3 seasons + ongoing 2026
 IPL_COMPETITION_NAMES   = {"IPL", "Indian Premier League"}   # Cricsheet uses "IPL"
 
 # ── Domestic competition name ────────────────────────────────────────────────

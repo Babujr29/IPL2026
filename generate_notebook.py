@@ -150,5 +150,5 @@ nb.cells = cells
 with open(NB_PATH, 'w', encoding='utf-8') as f:
     nbf.write(nb, f)
 
-print(f"✓ Notebook written to {NB_PATH}")
+print(f"[DONE] Notebook written to {NB_PATH}")
 print("  Open with: jupyter notebook ipl_2026_analysis.ipynb")
