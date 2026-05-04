@@ -19,7 +19,7 @@ FORM_START_DATE = date(2024, 1, 1)
 
 # ── IPL Aura ─────────────────────────────────────────────────────────────────
 # Last 3 IPL seasons to include in aura calculation
-IPL_AURA_SEASONS        = {2023, 2024, 2025, 2026}  # Last 3 seasons + ongoing 2026
+IPL_AURA_SEASONS        = {2023, 2024, 2025}  # Last 3 seasons
 IPL_COMPETITION_NAMES   = {"IPL", "Indian Premier League"}   # Cricsheet uses "IPL"
 
 # ── Domestic competition name ────────────────────────────────────────────────
